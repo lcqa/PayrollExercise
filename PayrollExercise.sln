@@ -5,9 +5,13 @@ VisualStudioVersion = 17.5.33502.453
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Payroll.API", "Payroll.API\Payroll.API.csproj", "{194C230A-252F-4330-9102-47563882FC2C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Payroll.Models", "Payroll.Models\Payroll.Models.csproj", "{BC2CDB45-0D64-41F1-8242-1F574A345AC4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PayrollExercise.Models", "Payroll.Models\PayrollExercise.Models.csproj", "{BC2CDB45-0D64-41F1-8242-1F574A345AC4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Payroll.Infrastructure", "Payroll.Infrastructure\Payroll.Infrastructure.csproj", "{4B1E9C4D-5CBA-4ACC-81AD-E0FB7DA1EFD5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PayrollExercise.Infrastructure", "Payroll.Infrastructure\PayrollExercise.Infrastructure.csproj", "{4B1E9C4D-5CBA-4ACC-81AD-E0FB7DA1EFD5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PayrollExercise.Services.Payroll", "PayrollExercise.Services.Payroll\PayrollExercise.Services.Payroll.csproj", "{0DB541E9-5926-43A3-95BA-6161443B8460}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PayrollExercise.Models.UnitTests", "PayrollExercise.Models.UnitTests\PayrollExercise.Models.UnitTests.csproj", "{3376F88E-B758-4FF5-A363-4A791B06DA5A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +31,14 @@ Global
 		{4B1E9C4D-5CBA-4ACC-81AD-E0FB7DA1EFD5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4B1E9C4D-5CBA-4ACC-81AD-E0FB7DA1EFD5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4B1E9C4D-5CBA-4ACC-81AD-E0FB7DA1EFD5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0DB541E9-5926-43A3-95BA-6161443B8460}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DB541E9-5926-43A3-95BA-6161443B8460}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DB541E9-5926-43A3-95BA-6161443B8460}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DB541E9-5926-43A3-95BA-6161443B8460}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3376F88E-B758-4FF5-A363-4A791B06DA5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3376F88E-B758-4FF5-A363-4A791B06DA5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3376F88E-B758-4FF5-A363-4A791B06DA5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3376F88E-B758-4FF5-A363-4A791B06DA5A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
