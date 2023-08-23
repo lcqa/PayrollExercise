@@ -22,7 +22,7 @@ namespace PayrollExercise.Models.Models.Payroll
 
         }
 
-        public EmployeePayroll(Employee employee, double annualSalary, int superRate, int PayPeriod)
+        public EmployeePayroll(Employee employee, double annualSalary, int superRate)
         {
             this.Employee = employee;
             ComputeGrossIncome(annualSalary);
