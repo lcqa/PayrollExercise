@@ -1,11 +1,11 @@
-﻿using PayrollExercise.Models.Extensions;
+﻿using PayrollExercise.Models.Constants;
+using PayrollExercise.Models.Extensions;
+using System.Globalization;
 
 namespace PayrollExercise.Models.Models.Payroll
 {
-    public class EmployeePayroll
+    public class PayrollDetails
     {
-        public Employee Employee { get; set; }
-
         //Month
         public string PayPeriod { get; set; } = string.Empty;
 
@@ -17,23 +17,25 @@ namespace PayrollExercise.Models.Models.Payroll
 
         public double Super { get; private set; }
 
-        public EmployeePayroll()
+        public PayrollDetails()
         {
 
         }
 
-        public EmployeePayroll(Employee employee, double annualSalary, int superRate)
+        public PayrollDetails(double annualSalary, int superRate, int month)
         {
-            this.Employee = employee;
+            ParsePayPeriod(month);
             ComputeGrossIncome(annualSalary);
             ComputeIncomeTax(annualSalary);
             ComputeNetIncome();
             ComputeSuper(superRate);
         }
 
-        private void ParsePayPeriod()
+        private void ParsePayPeriod(int month)
         {
-            this.PayPeriod = $"01 ";
+            var dateTime = new DateTime(DateTime.Now.Year, month, 1);
+            var monthString = CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(month);
+            this.PayPeriod = $"01 {monthString} - {dateTime.AddMonths(1).AddDays(-1).ToString("dd")} {monthString}";
         }
 
         private void ComputeGrossIncome(double annualSalary)
@@ -54,7 +56,7 @@ namespace PayrollExercise.Models.Models.Payroll
 
         private void ComputeIncomeTax(double annualSalary)
         {
-            var taxTier = GetTaxTier(annualSalary);
+            var taxTier = TaxConstants.GetTaxTier(annualSalary);
             var referencedSalary = annualSalary;
             var aggregatedTax = 0.0;
 
@@ -67,83 +69,57 @@ namespace PayrollExercise.Models.Models.Payroll
             this.IncomeTax = (aggregatedTax / 12).ToTwoDecimalPlaces();
         }
 
-        private int GetTaxTier(double annualSalary)
-        {
-
-            if (annualSalary <= 14000)
-            {
-                return 1;
-            }
-
-            if (annualSalary <= 48000)
-            {
-                return 2;
-            }
-
-            if (annualSalary <= 70000)
-            {
-                return 3;
-            }
-
-            if (annualSalary <= 180000)
-            {
-                return 4;
-            }
-
-            return 5;
-        }
-
         private double TaxTierComputation(ref double taxableSalary, int taxTier, double totalSalary)
         {
             switch (taxTier)
             {
                 case 1:
                     {
-                        var result = totalSalary <= 14000 ? taxableSalary * 0.105 : 14000 * 0.105;
+                        var result = totalSalary <= TaxConstants.TaxTierOneUpperLimit ? taxableSalary * TaxConstants.TaxTierOnePercentRate : TaxConstants.TaxTierOneUpperLimit * TaxConstants.TaxTierOnePercentRate;
 
-                        if (totalSalary > 14000)
+                        if (totalSalary > TaxConstants.TaxTierOneUpperLimit)
                         {
-                            taxableSalary -= 14000;
+                            taxableSalary -= TaxConstants.TaxTierOneUpperLimit;
                         }
 
                         return result;
                     }
                 case 2:
                     {
-                        var result = totalSalary <= 48000 ? taxableSalary * 0.175 : (48000 - 14000) * 0.175;
+                        var result = totalSalary <= TaxConstants.TaxTierTwoUpperLimit ? taxableSalary * TaxConstants.TaxTierTwoPercentRate : (TaxConstants.TaxTierTwoUpperLimit - TaxConstants.TaxTierOneUpperLimit) * TaxConstants.TaxTierTwoPercentRate;
 
-                        if (totalSalary > 48000)
+                        if (totalSalary > TaxConstants.TaxTierTwoUpperLimit)
                         {
-                            taxableSalary -= 34000;
+                            taxableSalary -= TaxConstants.TaxTierTwoUpperLimit - TaxConstants.TaxTierOneUpperLimit;
                         }
 
                         return result;
                     }
                 case 3:
                     {
-                        var result = totalSalary <= 70000 ? taxableSalary * 0.3 : (70000 - 48000) * 0.3;
+                        var result = totalSalary <= TaxConstants.TaxTierThreeUpperLimit ? taxableSalary * TaxConstants.TaxTierThreePercentRate : (TaxConstants.TaxTierThreeUpperLimit - TaxConstants.TaxTierTwoUpperLimit) * TaxConstants.TaxTierThreePercentRate;
 
-                        if (totalSalary > 70000)
+                        if (totalSalary > TaxConstants.TaxTierThreeUpperLimit)
                         {
-                            taxableSalary -= 22000;
+                            taxableSalary -= TaxConstants.TaxTierThreeUpperLimit - TaxConstants.TaxTierTwoUpperLimit;
                         }
 
                         return result;
                     }
                 case 4:
                     {
-                        var result = totalSalary <= 180000 ? taxableSalary * 0.33 : (180000 - 70000) * 33;
+                        var result = totalSalary <= TaxConstants.TaxTierFourUpperLimit ? taxableSalary * TaxConstants.TaxTierFourPercentRate : (TaxConstants.TaxTierFourUpperLimit - TaxConstants.TaxTierThreeUpperLimit) * TaxConstants.TaxTierFourPercentRate;
 
-                        if (totalSalary > 180000)
+                        if (totalSalary > TaxConstants.TaxTierFourUpperLimit)
                         {
-                            taxableSalary -= 110000;
+                            taxableSalary -= TaxConstants.TaxTierFourUpperLimit - TaxConstants.TaxTierThreeUpperLimit;
                         }
 
                         return result;
                     }
                 default:
                     {
-                        var result = (taxableSalary - 180000) * 0.39;
+                        var result = (taxableSalary - TaxConstants.TaxTierFourUpperLimit) * TaxConstants.TaxTierFivePercentRate;
 
                         return result;
                     }
