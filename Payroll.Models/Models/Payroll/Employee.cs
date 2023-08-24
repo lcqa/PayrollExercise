@@ -12,6 +12,8 @@ namespace PayrollExercise.Models.Models.Payroll
 
         public string LastName { get; set; } = string.Empty;
 
+        public PayrollDetails PayrollDetails { get; private set; }
+
         public Employee()
         {
 
@@ -21,6 +23,18 @@ namespace PayrollExercise.Models.Models.Payroll
         {
             FirstName = firstName;
             LastName = lastName;
+        }
+
+        public Employee(string firstName, string lastName, PayrollDetails payrollDetails)
+        {
+            FirstName = firstName;
+            LastName = lastName;
+            PayrollDetails = payrollDetails;
+        }
+
+        public void ComputePayrollDetails(double annualSalary, int superRate, int month)
+        {
+            PayrollDetails = new PayrollDetails(annualSalary, superRate, month);
         }
     }
 }

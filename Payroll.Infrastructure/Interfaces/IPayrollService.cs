@@ -6,6 +6,6 @@ namespace Payroll.Infrastructure.Interfaces
 {
     public interface IPayrollService
     {
-        Task<BaseResponse<EmployeePayroll>> GetEmployeePayroll(GetEmployeePayrollRequest request);
+        Task<BaseResponse<Employee>> GetEmployeePayroll(GetEmployeePayrollRequest request);
     }
 }
