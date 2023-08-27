@@ -25,7 +25,8 @@ namespace Payroll.API.Controllers
         public async Task<IActionResult> GetPayrollDetails([FromQuery]GetEmployeePayrollWebRequest webRequest)
         {
             var result = await this._payrollService.GetEmployeePayroll(webRequest.ToServiceRequest());
-            return Ok(result);
+            var actionResult = this.StatusCode(result.StatusCode,result);
+            return actionResult;
         }
     }
 }
