@@ -11,8 +11,4 @@
     <ProjectReference Include="..\Payroll.Models\PayrollExercise.Models.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Strategy\IncomeTaxStrategy\" />
-  </ItemGroup>
-
 </Project>
