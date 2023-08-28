@@ -1,4 +1,4 @@
-﻿namespace PayrollExercise.Models.Messages.Request.Payroll
+﻿namespace PayrollExercise.Services.Messages.Request.Payroll
 {
     public class GetEmployeePayrollRequest
     {

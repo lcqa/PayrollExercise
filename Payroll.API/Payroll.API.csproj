@@ -4,6 +4,7 @@
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
@@ -11,12 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Payroll.Infrastructure\PayrollExercise.Infrastructure.csproj" />
-    <ProjectReference Include="..\PayrollExercise.Services.Payroll\PayrollExercise.Services.Payroll.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Extensions\" />
+    <ProjectReference Include="..\PayrollExercise.Services.Payroll\PayrollExercise.Services.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,13 +1,8 @@
 ﻿using PayrollExercise.Models.Constants;
-using PayrollExercise.Models.Messages.Request.Payroll;
-using PayrollExercise.Services.Payroll.Specification.Base;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using PayrollExercise.Services.Messages.Request.Payroll;
+using PayrollExercise.Services.Specification.Base;
 
-namespace PayrollExercise.Services.Payroll.Specification.GetEmployeePayrollSpecification
+namespace PayrollExercise.Services.Specification.GetEmployeePayrollSpecification
 {
     public class SuperRateWithinValidRange : Specification<GetEmployeePayrollRequest>
     {
@@ -15,13 +10,13 @@ namespace PayrollExercise.Services.Payroll.Specification.GetEmployeePayrollSpeci
         {
             var isSatisfied = true;
 
-            if(entity.SuperRate < RateConstants.SuperRateFloorValue)
+            if (entity.SuperRate < RateConstants.SuperRateFloorValue)
             {
                 isSatisfied = false;
                 errors.Add($"Super rate should not be lower than {RateConstants.SuperRateFloorValue}");
             }
 
-            if(entity.SuperRate > RateConstants.SuperRateCeilingValue)
+            if (entity.SuperRate > RateConstants.SuperRateCeilingValue)
             {
                 isSatisfied = false;
                 errors.Add($"Super rate should not be higher than {RateConstants.SuperRateCeilingValue}");

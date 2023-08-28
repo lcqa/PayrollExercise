@@ -2,10 +2,10 @@
 using Moq;
 using Payroll.API.Controllers;
 using Payroll.API.WebModels;
-using Payroll.Infrastructure.Interfaces;
-using PayrollExercise.Models.Messages.Request.Payroll;
-using PayrollExercise.Models.Messages.Response;
 using PayrollExercise.Models.Models.Payroll;
+using PayrollExercise.Services.Messages.Request.Payroll;
+using PayrollExercise.Services.Messages.Response;
+using PayrollExercise.Services.Services.Interface;
 using System.Net;
 
 namespace Payroll.API.Tests.Controllers
@@ -47,6 +47,7 @@ namespace Payroll.API.Tests.Controllers
                 Data = new Employee(request.FirstName, request.LastName),
                 StatusCode = (int)HttpStatusCode.OK,
             };
+            expectedResponse.Data.ComputePayrollDetails(request.AnnualSalary.GetValueOrDefault(), request.SuperRate.GetValueOrDefault(), request.PayPeriod);
 
             payrollService.Setup(p => p.GetEmployeePayroll(It.IsAny<GetEmployeePayrollRequest>())).ReturnsAsync(expectedResponse);
             var result = await target.GetPayrollDetails(request) as ObjectResult;
@@ -69,6 +70,7 @@ namespace Payroll.API.Tests.Controllers
                 Data = new Employee(request.FirstName, request.LastName),
                 StatusCode = (int)HttpStatusCode.BadRequest,
             };
+            expectedResponse.Data.ComputePayrollDetails(request.AnnualSalary.GetValueOrDefault(), request.SuperRate.GetValueOrDefault(), request.PayPeriod);
 
             payrollService.Setup(p => p.GetEmployeePayroll(It.IsAny<GetEmployeePayrollRequest>())).ReturnsAsync(expectedResponse);
             var result = await target.GetPayrollDetails(request) as ObjectResult;

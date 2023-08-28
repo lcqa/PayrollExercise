@@ -1,8 +1,8 @@
-﻿using PayrollExercise.Models.Messages.Request.Payroll;
-using PayrollExercise.Services.Payroll.Specification.Base;
-using PayrollExercise.Services.Payroll.Specification.GetEmployeePayrollSpecification;
+﻿using PayrollExercise.Services.Messages.Request.Payroll;
+using PayrollExercise.Services.Specification.Base;
+using PayrollExercise.Services.Specification.GetEmployeePayrollSpecification;
 
-namespace PayrollExercise.Services.Payroll.Specification.Factory
+namespace PayrollExercise.Services.Specification.Factory
 {
     public class ServiceSpecificationFactory : IServiceSpecificationFactory
     {

@@ -1,12 +1,7 @@
-﻿using PayrollExercise.Models.Messages.Request.Payroll;
-using PayrollExercise.Services.Payroll.Specification.Base;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using PayrollExercise.Services.Messages.Request.Payroll;
+using PayrollExercise.Services.Specification.Base;
 
-namespace PayrollExercise.Services.Payroll.Specification.GetEmployeePayrollSpecification
+namespace PayrollExercise.Services.Specification.GetEmployeePayrollSpecification
 {
     public class AnnualSalaryIsPositiveSpecification : Specification<GetEmployeePayrollRequest>
     {
@@ -14,7 +9,7 @@ namespace PayrollExercise.Services.Payroll.Specification.GetEmployeePayrollSpeci
         {
             var isSatisfied = true;
 
-            if(entity.AnnualSalary <= 0)
+            if (entity.AnnualSalary <= 0)
             {
                 isSatisfied = false;
                 errors.Add("Annual salary is not a positive value");

@@ -1,4 +1,4 @@
-﻿using PayrollExercise.Models.Messages.Request.Payroll;
+﻿using PayrollExercise.Services.Messages.Request.Payroll;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 
@@ -34,7 +34,7 @@ namespace Payroll.API.WebModels
         /// </example>
         [Required]
         [JsonPropertyName("annualSalary")]
-        public double AnnualSalary { get; set; }
+        public double? AnnualSalary { get; set; }
 
         /// <summary>
         /// Super Rate % of the employee
@@ -45,7 +45,7 @@ namespace Payroll.API.WebModels
         [Required]
         [Range(minimum: 0, maximum: 50, ErrorMessage = "Valid values are from 0 to 50")]
         [JsonPropertyName("superRate")]
-        public int SuperRate { get; set; }
+        public int? SuperRate { get; set; }
 
         /// <summary>
         /// Month Pay Period
@@ -54,7 +54,7 @@ namespace Payroll.API.WebModels
         /// 3
         /// </example>
         [Required]
-        [Range(minimum:1, maximum: 12, ErrorMessage = "Valid values are from 1 to 12, with each number represents Months")]
+        [Range(minimum: 1, maximum: 12, ErrorMessage = "Please provide a valid value")]
         [JsonPropertyName("payPeriod")]
         public int PayPeriod { get; set; }
 
@@ -65,8 +65,8 @@ namespace Payroll.API.WebModels
                 FirstName = FirstName,
                 LastName = LastName,
                 PayPeriod = PayPeriod,
-                SuperRate = SuperRate,
-                AnnualSalary = AnnualSalary,
+                SuperRate = SuperRate.GetValueOrDefault(),
+                AnnualSalary = AnnualSalary.GetValueOrDefault(),
             };
         }
     }

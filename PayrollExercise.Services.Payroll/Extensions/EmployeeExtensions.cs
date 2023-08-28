@@ -1,12 +1,7 @@
 ﻿using PayrollExercise.Models.Models.Payroll;
-using PayrollExercise.Services.Payroll.ViewModels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using PayrollExercise.Services.ViewModels;
 
-namespace PayrollExercise.Services.Payroll.Extensions
+namespace PayrollExercise.Services.Extensions
 {
     public static class EmployeeExtensions
     {

@@ -1,13 +1,12 @@
-﻿using Payroll.Infrastructure.Interfaces;
-using PayrollExercise.Infrastructure.Exceptions;
-using PayrollExercise.Models.Messages.Request.Payroll;
-using PayrollExercise.Models.Messages.Response;
-using PayrollExercise.Models.Models.Payroll;
-using PayrollExercise.Services.Payroll.Specification.Factory;
-using PayrollExercise.Services.Payroll.Specification.GetEmployeePayrollSpecification;
+﻿using PayrollExercise.Models.Models.Payroll;
+using PayrollExercise.Services.Exceptions;
+using PayrollExercise.Services.Messages.Request.Payroll;
+using PayrollExercise.Services.Messages.Response;
+using PayrollExercise.Services.Services.Interface;
+using PayrollExercise.Services.Specification.Factory;
 using System.Net;
 
-namespace PayrollExercise.Services.Payroll
+namespace PayrollExercise.Services.Services
 {
     public class PayrollService : IPayrollService
     {

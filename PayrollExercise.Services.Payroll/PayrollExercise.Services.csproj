@@ -7,7 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Payroll.Infrastructure\PayrollExercise.Infrastructure.csproj" />
     <ProjectReference Include="..\Payroll.Models\PayrollExercise.Models.csproj" />
   </ItemGroup>
 
