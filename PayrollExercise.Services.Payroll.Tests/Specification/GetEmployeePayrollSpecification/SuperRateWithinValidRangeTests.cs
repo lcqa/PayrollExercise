@@ -1,6 +1,6 @@
 ﻿using PayrollExercise.Models.Constants;
-using PayrollExercise.Models.Messages.Request.Payroll;
-using PayrollExercise.Services.Payroll.Specification.GetEmployeePayrollSpecification;
+using PayrollExercise.Services.Messages.Request.Payroll;
+using PayrollExercise.Services.Specification.GetEmployeePayrollSpecification;
 using System;
 using System.Collections.Generic;
 using System.Linq;

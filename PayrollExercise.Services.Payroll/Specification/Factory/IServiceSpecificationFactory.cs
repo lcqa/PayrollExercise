@@ -1,15 +1,10 @@
-﻿using PayrollExercise.Models.Messages.Request.Payroll;
-using PayrollExercise.Services.Payroll.Specification.Base;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using PayrollExercise.Services.Messages.Request.Payroll;
+using PayrollExercise.Services.Specification.Base;
 
-namespace PayrollExercise.Services.Payroll.Specification.Factory
+namespace PayrollExercise.Services.Specification.Factory
 {
     public interface IServiceSpecificationFactory
     {
-        ISpecification<GetEmployeePayrollRequest> GetEmployeePayrollRequestSpecification(GetEmployeePayrollRequest request); 
+        ISpecification<GetEmployeePayrollRequest> GetEmployeePayrollRequestSpecification(GetEmployeePayrollRequest request);
     }
 }

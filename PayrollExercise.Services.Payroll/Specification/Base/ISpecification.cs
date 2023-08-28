@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace PayrollExercise.Services.Payroll.Specification.Base
+﻿namespace PayrollExercise.Services.Specification.Base
 {
     public interface ISpecification<T>
     {

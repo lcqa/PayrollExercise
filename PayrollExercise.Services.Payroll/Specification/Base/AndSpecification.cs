@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace PayrollExercise.Services.Payroll.Specification.Base
+﻿namespace PayrollExercise.Services.Specification.Base
 {
     public class AndSpecification<T> : Specification<T>
     {
@@ -19,7 +13,7 @@ namespace PayrollExercise.Services.Payroll.Specification.Base
 
         public override bool IsSatisfied(T entity, List<string> errors)
         {
-            return this._left.IsSatisfied(entity, errors) && this._right.IsSatisfied(entity, errors);
+            return _left.IsSatisfied(entity, errors) && _right.IsSatisfied(entity, errors);
         }
     }
 }

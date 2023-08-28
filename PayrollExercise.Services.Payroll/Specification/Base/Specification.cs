@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-namespace PayrollExercise.Services.Payroll.Specification.Base
+﻿namespace PayrollExercise.Services.Specification.Base
 {
     public abstract class Specification<T> : ISpecification<T>
     {

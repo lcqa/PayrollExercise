@@ -61,7 +61,7 @@ namespace PayrollExercise.Models.Models.Payroll
             var aggregatedTax = 0.0;
 
             // computes for income tax per tax tier
-            for(int i = 1; i <= taxTier; i++)
+            for (int i = 1; i <= taxTier; i++)
             {
                 aggregatedTax += TaxTierComputation(ref referencedSalary, i, annualSalary).ToTwoDecimalPlaces();
             }

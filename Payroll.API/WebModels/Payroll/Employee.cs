@@ -1,5 +1,4 @@
-﻿using PayrollExercise.Models.Models.Payroll;
-using System.Text.Json.Serialization;
+﻿using System.Text.Json.Serialization;
 
 namespace Payroll.API.WebModels.Payroll
 {

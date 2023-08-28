@@ -1,6 +1,6 @@
-﻿using Payroll.Infrastructure.Interfaces;
-using PayrollExercise.Services.Payroll;
-using PayrollExercise.Services.Payroll.Specification.Factory;
+﻿using PayrollExercise.Services.Services;
+using PayrollExercise.Services.Services.Interface;
+using PayrollExercise.Services.Specification.Factory;
 
 namespace Payroll.API.Injections
 {

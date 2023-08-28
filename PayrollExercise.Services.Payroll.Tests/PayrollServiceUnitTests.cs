@@ -1,8 +1,9 @@
 using Moq;
-using PayrollExercise.Infrastructure.Exceptions;
-using PayrollExercise.Models.Messages.Request.Payroll;
-using PayrollExercise.Services.Payroll.Specification.Base;
-using PayrollExercise.Services.Payroll.Specification.Factory;
+using PayrollExercise.Services.Exceptions;
+using PayrollExercise.Services.Messages.Request.Payroll;
+using PayrollExercise.Services.Services;
+using PayrollExercise.Services.Specification.Base;
+using PayrollExercise.Services.Specification.Factory;
 using System.Net;
 
 namespace PayrollExercise.Services.Payroll.Tests
