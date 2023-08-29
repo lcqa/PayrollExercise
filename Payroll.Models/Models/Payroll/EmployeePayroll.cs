@@ -73,7 +73,7 @@ namespace PayrollExercise.Models.Models.Payroll
         {
             switch (taxTier)
             {
-                case 1:
+                case (int)TaxTier.One:
                     {
                         var result = totalSalary <= TaxConstants.TaxTierOneUpperLimit ? taxableSalary * TaxConstants.TaxTierOnePercentRate : TaxConstants.TaxTierOneUpperLimit * TaxConstants.TaxTierOnePercentRate;
 
@@ -84,7 +84,7 @@ namespace PayrollExercise.Models.Models.Payroll
 
                         return result;
                     }
-                case 2:
+                case (int)TaxTier.Two:
                     {
                         var result = totalSalary <= TaxConstants.TaxTierTwoUpperLimit ? taxableSalary * TaxConstants.TaxTierTwoPercentRate : (TaxConstants.TaxTierTwoUpperLimit - TaxConstants.TaxTierOneUpperLimit) * TaxConstants.TaxTierTwoPercentRate;
 
@@ -95,7 +95,7 @@ namespace PayrollExercise.Models.Models.Payroll
 
                         return result;
                     }
-                case 3:
+                case (int)TaxTier.Three:
                     {
                         var result = totalSalary <= TaxConstants.TaxTierThreeUpperLimit ? taxableSalary * TaxConstants.TaxTierThreePercentRate : (TaxConstants.TaxTierThreeUpperLimit - TaxConstants.TaxTierTwoUpperLimit) * TaxConstants.TaxTierThreePercentRate;
 
@@ -106,7 +106,7 @@ namespace PayrollExercise.Models.Models.Payroll
 
                         return result;
                     }
-                case 4:
+                case (int)TaxTier.Four:
                     {
                         var result = totalSalary <= TaxConstants.TaxTierFourUpperLimit ? taxableSalary * TaxConstants.TaxTierFourPercentRate : (TaxConstants.TaxTierFourUpperLimit - TaxConstants.TaxTierThreeUpperLimit) * TaxConstants.TaxTierFourPercentRate;
 
