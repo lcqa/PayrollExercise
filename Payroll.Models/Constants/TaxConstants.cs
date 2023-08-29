@@ -1,5 +1,14 @@
 ﻿namespace PayrollExercise.Models.Constants
 {
+    public enum TaxTier
+    {
+        One = 1, 
+        Two = 2, 
+        Three = 3, 
+        Four = 4, 
+        Five = 5
+    }
+
     public class TaxConstants
     {
         public const int TaxTierOneUpperLimit = 14000;
@@ -18,25 +27,25 @@
 
             if (annualSalary <= TaxTierOneUpperLimit)
             {
-                return 1;
+                return (int)TaxTier.One;
             }
 
             if (annualSalary <= TaxTierTwoUpperLimit)
             {
-                return 2;
+                return (int)TaxTier.Two;
             }
 
             if (annualSalary <= TaxTierThreeUpperLimit)
             {
-                return 3;
+                return (int)TaxTier.Three;
             }
 
             if (annualSalary <= TaxTierFourUpperLimit)
             {
-                return 4;
+                return (int)TaxTier.Four;
             }
 
-            return 5;
+            return (int)TaxTier.Five;
         }
     }
 }
